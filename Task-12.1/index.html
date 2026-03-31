@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 12.1 - Fetch API Basics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #1e1e2e;
+            color: #cdd6f4;
+        }
+        h1 { color: #89b4fa; }
+        .section {
+            background: #313244;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        pre {
+            background: #181825;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            color: #a6e3a1;
+        }
+    </style>
+</head>
+<body>
+    <h1>Task 12.1 - Fetch API Basics</h1>
+
+    <div class="section">
+        <h2>Single User</h2>
+        <pre id="single-user">Loading...</pre>
+    </div>
+
+    <div class="section">
+        <h2>All Users</h2>
+        <pre id="all-users">Loading...</pre>
+    </div>
+
+    <div class="section">
+        <h2>User 1 Posts</h2>
+        <pre id="user-posts">Loading...</pre>
+    </div>
+
+    <script src="task12.1.js"></script>
+    <script>
+        // Display results in the page
+        getUser(1).then(user => {
+            document.getElementById("single-user").textContent =
+                JSON.stringify(user, null, 2);
+        });
+
+        fetch("https://jsonplaceholder.typicode.com/users")
+            .then(res => res.json())
+            .then(users => {
+                document.getElementById("all-users").textContent =
+                    JSON.stringify(users, null, 2);
+            });
+
+        fetch("https://jsonplaceholder.typicode.com/users/1/posts")
+            .then(res => res.json())
+            .then(posts => {
+                document.getElementById("user-posts").textContent =
+                    JSON.stringify(posts, null, 2);
+            });
+    </script>
+</body>
+</html>
