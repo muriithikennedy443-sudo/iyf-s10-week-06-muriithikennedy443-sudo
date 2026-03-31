@@ -11,7 +11,7 @@ A collection of JavaScript tasks covering asynchronous programming concepts incl
 ## Technologies Used
 - HTML5
 - CSS3
-- JavaScript (ES6+)
+- JavaScript
 - Node.js
 - Fetch API
 - OpenWeatherMap API
@@ -39,6 +39,7 @@ A collection of JavaScript tasks covering asynchronous programming concepts incl
 
 ## How to Run
 
+### For browser tasks (Task 11.1 - 11.4)
 ```bash
 cd Task-11.1
 node task11.1.js
